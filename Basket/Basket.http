@@ -1,0 +1,33 @@
+@Basket_HostAddress = https://localhost:7148/basket
+
+GET {{Basket_HostAddress}}/swn
+Accept: application/json
+
+###
+
+POST {{Basket_HostAddress}}
+Content-Type: application/json
+{
+  "UserName": "swn",
+  "Items": [
+    {
+      "ProductId": 1,
+      "ProductName": "Apple",
+      "Price": 2.5,
+      "Quantity": 3,
+      "Color": "Red"
+    },
+    {
+      "ProductId": 2,
+      "ProductName": "Banana",
+      "Price": 0.5,
+      "Quantity": 3,
+      "Color": "Yellow"
+    }
+  ]
+}
+
+
+###
+
+DELETE {{Basket_HostAddress}}/swn
