@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Basket.Services
 {
-    public class BasketService(IDistributedCache redisCache)
+    public class BasketService(IDistributedCache redisCache, CatalogApiClient catalogApiClient)
     {
         public async Task<ShoppingCart?> GetBasket(string userName)
         {
@@ -13,6 +13,13 @@ namespace Basket.Services
 
         public async Task UpdateBasket(ShoppingCart basket)
         {
+            foreach(var item in basket.Items)
+            {
+                var product = await catalogApiClient.GetProductById(item.ProductId);
+                item.Price = product.Price;
+                item.ProductName = product.Name;
+            }
+
             await redisCache.SetStringAsync(basket.UserName, JsonSerializer.Serialize(basket));
         }
 

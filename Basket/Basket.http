@@ -13,14 +13,14 @@ Content-Type: application/json
     {
       "ProductId": 1,
       "ProductName": "Apple",
-      "Price": 2.5,
+      "Price": 0,
       "Quantity": 3,
       "Color": "Red"
     },
     {
       "ProductId": 2,
-      "ProductName": "Banana",
-      "Price": 0.5,
+      "ProductName": "Bananaasdadasdadsad",
+      "Price": 0,
       "Quantity": 3,
       "Color": "Yellow"
     }
