@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Keycloak.Authentication" Version="13.1.2-preview.1.26125.13" />
     <PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="13.1.2" />
   </ItemGroup>
 

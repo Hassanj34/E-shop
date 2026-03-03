@@ -1,12 +1,15 @@
 @Basket_HostAddress = https://localhost:7148/basket
+@accessToken = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzVGNabGJUb2ZzeHlHWVRjdktWbHFJaU95UTB6ZlV5TzEyS0pYNXB2TkxZIn0.eyJleHAiOjE3NzI1NzI3MjcsImlhdCI6MTc3MjU3MjQyNywianRpIjoib25ydHJvOmU3ZDUzNTIwLTgzMDEtYjM1Ny1lNzdjLTFiYjE3Nzc4NzQzYiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvZXNob3AiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzRkMjQxYTUtMzI1Ny00NjMxLTkxZTYtYzQ5MzNiOWZmNWQzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZXNob3AtY2xpZW50Iiwic2lkIjoiZDZkMWNjYzUtYWE0MS00NDU4LWQ1MzAtOTZmNzMyOWYyYjdmIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1lLXNob3AiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoidGVzdCB0ZXN0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdCIsImdpdmVuX25hbWUiOiJ0ZXN0IiwiZmFtaWx5X25hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIn0.kL9kJL4bn_9IEj4GO11eC5PI2_RPGPpLuM_wvg-BoYl5Worrf47cRoI9WCYYw1XeOVDV2c6h5M7yVEw9-9ptMJVPadsE9gBq_6yk7Ml-7ltw-FBrGgX7IqGw1F06B25t4yLcWqunBiH5br_cokqxZZOZ3vQO_divaXLY3Vh1F55m40nknQ6oBAejdTaZWehWVCK8xu0AU0jhKFU0EGTuo3xdqQdwnesk6gX2K91G9DAMC-FpKfoFYaJXU3WfnO2Mvc1-ulUWPRpIWwgllumumPyzogHmK0lGvpMwt-92PDrJavQsuDr2ukn2oyHh0Ecv5hxuu7jTofM6KEJTy9S2Ow
 
 GET {{Basket_HostAddress}}/jamil
 Accept: application/json
+Authorization: Bearer {{accessToken}}
 
 ###
 
 POST {{Basket_HostAddress}}
 Content-Type: application/json
+Authorization: Bearer {{accessToken}}
 {
   "UserName": "swn",
   "Items": [
@@ -31,6 +34,7 @@ Content-Type: application/json
 
 POST {{Basket_HostAddress}}
 Content-Type: application/json
+Authorization: Bearer {{accessToken}}
 {
   "UserName": "jamil",
   "Items": [
@@ -55,3 +59,11 @@ Content-Type: application/json
 ###
 
 DELETE {{Basket_HostAddress}}/swn
+Authorization: Bearer {{accessToken}}
+
+###
+
+POST http://localhost:8080/realms/eshop/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&client_id=eshop-client&scope=email openid&username=test&password=1234
