@@ -30,6 +30,16 @@ Content-Type: application/json
   "price": 29.99,
   "imageUrl": "product10.png"
 }
+###
+
+PUT {{Catalog_HostAddress}}/1
+Content-Type: application/json
+{
+  "name": "Laptop",
+  "description": "This is an updated product.",
+  "price": 29.99,
+  "imageUrl": "product1.png"
+}
 
 ###
 

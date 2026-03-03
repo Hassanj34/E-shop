@@ -1,6 +1,6 @@
 @Basket_HostAddress = https://localhost:7148/basket
 
-GET {{Basket_HostAddress}}/swn
+GET {{Basket_HostAddress}}/jamil
 Accept: application/json
 
 ###
@@ -9,6 +9,30 @@ POST {{Basket_HostAddress}}
 Content-Type: application/json
 {
   "UserName": "swn",
+  "Items": [
+    {
+      "ProductId": 1,
+      "ProductName": "Apple",
+      "Price": 0,
+      "Quantity": 3,
+      "Color": "Red"
+    },
+    {
+      "ProductId": 2,
+      "ProductName": "Bananaasdadasdadsad",
+      "Price": 0,
+      "Quantity": 3,
+      "Color": "Yellow"
+    }
+  ]
+}
+
+###
+
+POST {{Basket_HostAddress}}
+Content-Type: application/json
+{
+  "UserName": "jamil",
   "Items": [
     {
       "ProductId": 1,
