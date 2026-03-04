@@ -31,18 +31,18 @@ var keycloak = builder
 var catalog = builder
     .AddProject<Projects.Catalog>("catalog")
     .WithReference(catalogDb)
-    .WaitFor(catalogDb)
     .WithReference(rabbitmq)
+    .WaitFor(catalogDb)
     .WaitFor(rabbitmq);
 
 var basket = builder
     .AddProject<Projects.Basket>("basket")
     .WithReference(redisCache)
     .WithReference(catalog)
-    .WaitFor(redisCache)
     .WithReference(rabbitmq)
-    .WaitFor(rabbitmq)
     .WithReference(keycloak)
+    .WaitFor(redisCache)
+    .WaitFor(rabbitmq)
     .WaitFor(keycloak);
 
 

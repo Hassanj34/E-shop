@@ -30,21 +30,21 @@ builder.Services.AddAuthentication()
         realm: "eshop",
         configureOptions: options =>
         {
+            options.Authority = "http://localhost:8080/realms/eshop";
+            options.Audience = "eshop-client";
             options.RequireHttpsMetadata = false;
-            options.Audience = "account";
         });
+
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.MapDefaultEndpoints();
-app.MapBasketEndpoints();
-
 app.UseAuthentication();
-
 app.UseAuthorization();
 
+app.MapDefaultEndpoints();
+app.MapBasketEndpoints();
 app.UseHttpsRedirection();
 
 app.Run();
